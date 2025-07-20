@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonUpdate = dialogView.findViewById(R.id.buttonUpdate);
         Button buttonCancel = dialogView.findViewById(R.id.buttonCancel);
-        Button buttonClear = dialogView.findViewById(R.id.buttonClear);
 
         buttonUpdate.setOnClickListener(v -> {
             String updatedText = editTextUpdate.getText().toString().trim();
@@ -146,13 +145,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         buttonCancel.setOnClickListener(v -> dialog.dismiss());
-        buttonClear.setOnClickListener(v -> {
-            editTextUpdate.setText("");
-            editTextUpdate.requestFocus();
-        });
 
         dialog.show();
     }
+
 
     private void updateCharacterCount(EditText editText, TextView charCountView) {
         int length = editText.getText().length();
