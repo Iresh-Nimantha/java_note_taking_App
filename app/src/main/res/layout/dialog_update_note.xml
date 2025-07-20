@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background"
+    android:padding="24dp">
+
+    <!-- Dialog Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_edit_note"
+            android:tint="#2196F3"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Update Note"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"/>
+
+    </LinearLayout>
+
+    <!-- Original Date Info -->
+    <TextView
+        android:id="@+id/textViewOriginalDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Created: 2024-01-01 12:00"
+        android:textSize="12sp"
+        android:textColor="#757575"
+        android:background="@drawable/info_background"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/ic_access_time"
+        android:drawableTint="#757575"
+        android:drawablePadding="6dp"/>
+
+    <!-- Note Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <EditText
+            android:id="@+id/editTextUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="4"
+            android:maxLines="8"
+            android:gravity="top|start"
+            android:hint="Enter your note here..."
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:background="@drawable/edit_text_background"
+            android:padding="12dp"
+            android:scrollbars="vertical"
+            android:inputType="textMultiLine|textCapSentences"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Character Counter -->
+    <TextView
+        android:id="@+id/textViewCharCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 characters"
+        android:textSize="12sp"
+        android:textColor="#757575"
+        android:gravity="end"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Preview Section -->
+    <TextView
+        android:id="@+id/textViewPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Preview: "
+        android:textSize="14sp"
+        android:textColor="#424242"
+        android:background="@drawable/preview_background"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <!-- Clear Button -->
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:textColor="#757575"
+            android:background="@drawable/button_outline"
+            android:layout_marginEnd="8dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:minWidth="0dp"
+            android:textSize="14sp"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#757575"
+            android:background="@drawable/button_outline"
+            android:layout_marginEnd="12dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="8dp"
+            android:minWidth="0dp"
+            android:textSize="14sp"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <!-- Update Button -->
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Note"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_primary"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="10dp"
+            android:textStyle="bold"
+            android:minWidth="0dp"
+            android:textSize="14sp"
+            android:elevation="2dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

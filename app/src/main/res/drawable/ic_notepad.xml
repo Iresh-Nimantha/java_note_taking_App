@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="260dp"
+    android:viewportWidth="200"
+    android:viewportHeight="260">
+
+    <!-- Paper background -->
+    <path
+        android:fillColor="#FFFEF7"
+        android:strokeColor="#E2E8F0"
+        android:strokeWidth="1"
+        android:pathData="M15,20 L185,20 L185,250 L15,250 Z"/>
+
+    <!-- Spiral binding holes (converted to paths) -->
+    <group>
+        <!-- Hole 1 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M30,7 A3,3 0 1,1 30,13 A3,3 0 1,1 30,7 Z"/>
+        <!-- Hole 2 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M50,7 A3,3 0 1,1 50,13 A3,3 0 1,1 50,7 Z"/>
+        <!-- Hole 3 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M70,7 A3,3 0 1,1 70,13 A3,3 0 1,1 70,7 Z"/>
+        <!-- Hole 4 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M90,7 A3,3 0 1,1 90,13 A3,3 0 1,1 90,7 Z"/>
+        <!-- Hole 5 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M110,7 A3,3 0 1,1 110,13 A3,3 0 1,1 110,7 Z"/>
+        <!-- Hole 6 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M130,7 A3,3 0 1,1 130,13 A3,3 0 1,1 130,7 Z"/>
+        <!-- Hole 7 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M150,7 A3,3 0 1,1 150,13 A3,3 0 1,1 150,7 Z"/>
+        <!-- Hole 8 -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:strokeColor="#CBD5E0"
+            android:strokeWidth="1"
+            android:pathData="M170,7 A3,3 0 1,1 170,13 A3,3 0 1,1 170,7 Z"/>
+    </group>
+
+    <!-- Red margin line -->
+    <path
+        android:strokeColor="#E53E3E"
+        android:strokeWidth="2"
+        android:pathData="M40,30 L40,240"/>
+
+    <!-- Horizontal lines -->
+    <group>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,50 L175,50"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,70 L175,70"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,90 L175,90"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,110 L175,110"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,130 L175,130"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,150 L175,150"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,170 L175,170"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,190 L175,190"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,210 L175,210"/>
+        <path
+            android:strokeColor="#E2E8F0"
+            android:strokeWidth="1"
+            android:pathData="M45,230 L175,230"/>
+    </group>
+
+    <!-- Corner fold -->
+    <path
+        android:fillColor="#F7FAFC"
+        android:strokeColor="#CBD5E0"
+        android:strokeWidth="1"
+        android:pathData="M170,20 L185,20 L185,35 Z"/>
+
+    <!-- Shadow effect -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#CBD5E0"
+        android:strokeWidth="0.5"
+        android:pathData="M16,21 L186,21 L186,251 L16,251 Z"/>
+
+</vector>

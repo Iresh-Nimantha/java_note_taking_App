@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_gradient_background">
+
+    <!-- Subtle background pattern overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_pattern_overlay"
+        android:alpha="0.1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:padding="32dp">
+
+        <!-- Logo container with shadow -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <!-- Logo shadow -->
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/nlogo"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="2dp"
+                android:alpha="0.3"
+                android:contentDescription="Logo Shadow"/>
+
+            <!-- Main logo -->
+            <ImageView
+                android:id="@+id/splashLogo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/nlogo"
+                android:contentDescription="App Logo"
+                android:elevation="8dp"
+                android:scaleType="centerInside"/>
+
+        </FrameLayout>
+
+        <!-- App title with enhanced typography -->
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note Taking App"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:elevation="4dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"/>
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/appSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capture Your Ideas"
+            android:textColor="#E3F2FD"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.1"
+            android:alpha="0.9"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"/>
+
+        <!-- Loading indicator -->
+        <ProgressBar
+            android:id="@+id/loadingProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="40dp"
+            android:progressTint="#FFFFFF"
+            android:progressBackgroundTint="#64B5F6"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- Version info at bottom -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version 1.0"
+        android:textColor="#BBDEFB"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif-light"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="24dp"
+        android:alpha="0.7"/>
+
+</FrameLayout>
