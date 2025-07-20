@@ -24,6 +24,18 @@
             android:name=".note_item"
             android:exported="false"
             android:theme="@style/Theme.Note_taking_App" />
+
+        <!-- Sign In screen -->
+        <activity
+            android:name=".SignInActivity"
+            android:exported="true" />
+
+        <!-- Sign Up screen -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" />
+
+        <!-- Main note-taking screen -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

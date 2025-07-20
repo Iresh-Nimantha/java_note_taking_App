@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -19,7 +20,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // Start animations immediately
         startAnimations();
     }
 
@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         TextView subtitle = findViewById(R.id.appSubtitle);
         ProgressBar progress = findViewById(R.id.loadingProgress);
 
-        // Logo fade in and scale animation
+        // Logo animation
         logo.setAlpha(0f);
         logo.setScaleX(0.5f);
         logo.setScaleY(0.5f);
@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setInterpolator(new android.view.animation.OvershootInterpolator())
                 .start();
 
-        // Title slide up animation
+        // Title animation
         title.setAlpha(0f);
         title.setTranslationY(50f);
         title.animate()
@@ -51,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setStartDelay(400)
                 .start();
 
-        // Subtitle fade in
+        // Subtitle animation
         subtitle.setAlpha(0f);
         subtitle.animate()
                 .alpha(0.9f)
@@ -67,7 +67,6 @@ public class SplashActivity extends AppCompatActivity {
                 .setStartDelay(800)
                 .start();
 
-        // Simulate loading progress
         animateProgress(progress);
     }
 
@@ -78,16 +77,40 @@ public class SplashActivity extends AppCompatActivity {
         progressAnimator.setStartDelay(800); // Start after progress bar appears
         progressAnimator.start();
 
-        // Navigate to main activity after animation completes
         progressAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                // Navigate to main activity
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                finish();
-                // Add smooth transition
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                launchNextScreen();
             }
         });
+    }
+
+    /**
+     * Determines if the app should show signup, signin, or main activity.
+     */
+    private void launchNextScreen() {
+        NotesDatabaseHelper db = new NotesDatabaseHelper(this);
+
+        if (!db.hasAnyUser()) {
+            // No registered user. Force sign up.
+            startActivity(new Intent(this, SignUpActivity.class));
+        } else if (!isUserSignedIn()) {
+            // User(s) exist, but not signed in: show sign in
+            startActivity(new Intent(this, SignInActivity.class));
+        } else {
+            // User is signed in
+            startActivity(new Intent(this, MainActivity.class));
+        }
+        finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    /**
+     * Checks SharedPreferences for login state.
+     * You should set "signedIn=true" after login/signup, and clear it on logout.
+     */
+    private boolean isUserSignedIn() {
+        SharedPreferences prefs = getSharedPreferences("auth", MODE_PRIVATE);
+        return prefs.getBoolean("signedIn", false);
     }
 }
