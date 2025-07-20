@@ -13,7 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    private static final int ANIMATION_DURATION = 2800; // Total animation time
+    // Animation duration constants
+    private static final int ANIMATION_DURATION = 2800; // ms
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
         TextView subtitle = findViewById(R.id.appSubtitle);
         ProgressBar progress = findViewById(R.id.loadingProgress);
 
-        // Logo animation
+        // Logo: Fade in & scale
         logo.setAlpha(0f);
         logo.setScaleX(0.5f);
         logo.setScaleY(0.5f);
@@ -41,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setInterpolator(new android.view.animation.OvershootInterpolator())
                 .start();
 
-        // Title animation
+        // Title: Slide up and appear
         title.setAlpha(0f);
         title.setTranslationY(50f);
         title.animate()
@@ -51,7 +52,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setStartDelay(400)
                 .start();
 
-        // Subtitle animation
+        // Subtitle: Fade in
         subtitle.setAlpha(0f);
         subtitle.animate()
                 .alpha(0.9f)
@@ -59,7 +60,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setStartDelay(600)
                 .start();
 
-        // Progress bar animation
+        // ProgressBar: Fade in
         progress.setAlpha(0f);
         progress.animate()
                 .alpha(1f)
@@ -67,6 +68,7 @@ public class SplashActivity extends AppCompatActivity {
                 .setStartDelay(800)
                 .start();
 
+        // Start simulated loading and after animation, check sign-in state
         animateProgress(progress);
     }
 
@@ -86,19 +88,19 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     /**
-     * Determines if the app should show signup, signin, or main activity.
+     * Determines and launches the next screen based on user registration and sign-in state.
      */
     private void launchNextScreen() {
         NotesDatabaseHelper db = new NotesDatabaseHelper(this);
 
         if (!db.hasAnyUser()) {
-            // No registered user. Force sign up.
+            // No registered user -- force sign up
             startActivity(new Intent(this, SignUpActivity.class));
         } else if (!isUserSignedIn()) {
-            // User(s) exist, but not signed in: show sign in
+            // Users exist, but not signed in -- show sign in
             startActivity(new Intent(this, SignInActivity.class));
         } else {
-            // User is signed in
+            // User is already signed in -- go to main
             startActivity(new Intent(this, MainActivity.class));
         }
         finish();
@@ -107,7 +109,7 @@ public class SplashActivity extends AppCompatActivity {
 
     /**
      * Checks SharedPreferences for login state.
-     * You should set "signedIn=true" after login/signup, and clear it on logout.
+     * "signedIn" should be set true after login/signup, and cleared on logout.
      */
     private boolean isUserSignedIn() {
         SharedPreferences prefs = getSharedPreferences("auth", MODE_PRIVATE);

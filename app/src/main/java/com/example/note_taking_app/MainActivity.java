@@ -1,17 +1,19 @@
 package com.example.note_taking_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.Editable;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.graphics.Color;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,7 +74,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else {
                 showIconToast("Please enter a note");
+                shakeView(editTextNote);
             }
+        });
+
+        // LOGOUT BUTTON
+        ImageButton logoutButton = findViewById(R.id.logoutButton);
+        logoutButton.setOnClickListener(v -> {
+            // Clear login state from SharedPreferences
+            getSharedPreferences("auth", MODE_PRIVATE)
+                    .edit()
+                    .putBoolean("signedIn", false)
+                    .apply();
+
+            // Go back to SignInActivity and clear back stack
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+            showIconToast("Signed out successfully");
         });
 
         refreshNotes();
@@ -148,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
-
 
     private void updateCharacterCount(EditText editText, TextView charCountView) {
         int length = editText.getText().length();

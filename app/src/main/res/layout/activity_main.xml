@@ -26,7 +26,16 @@
             android:textStyle="bold"
             android:textColor="#1A1A1A"
             android:fontFamily="sans-serif-medium"/>
-
+        <!-- Logout Icon Button -->
+        <ImageButton
+            android:id="@+id/logoutButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_logout"
+            android:contentDescription="Logout"
+            android:tint="#EF4444"
+            app:tint="#EF4444" />
 
         <ImageView
             android:layout_width="40dp"
